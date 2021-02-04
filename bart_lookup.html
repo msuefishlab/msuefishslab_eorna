@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+  <html lang='en'>
+  <head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='stylesheet/eorna.css'>
+  <link rel='icon' href='images/eorna-mini-logo.png'>
+
+  <title>EoRNA - HORVU to BART</title>
+
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'></script>
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
+    </head>
+    
+    <body class='body-pos' data-spy='scroll' data-target='#list-data' data-offset='35' id='content'>
+
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <nav class="col-md-2 d-none d-md-block grey sidebar">
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item nav-link"  id="nav-title"><img class='img-fluid' src='images/eorna-logo.png' width=150'><span class='app-title'>EoRNA</span></li>
+                            <li class="nav-item nav-link"  id="nav-header"><b>Utilities Menu</b></li>
+                            <div class="list-group">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="blast.html">Homology Search</a></li>
+                            <li class="nav-item"><a class="nav-link" href="keyword.html">Annotation Search</a></li>
+                            <li class="nav-item"><a class="nav-link" href="download.html">Bulk Data Download</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="bart_lookup.html">Translate HORVU to BART IDs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="go.html">GO Enrichment</a></li>
+                            </div>
+                            <li class="nav-item nav-link"  id="nav-title"></li>
+                            <li class="nav-item nav-link"  id="nav-header"><b>Links</b></li>
+                            <li class="nav-item nav-link"  id="nav-title"></li>
+                            <li class='nav-item'><a class='nav-link ext-links' href='contact.html'>Citation / About Authors</a></li>
+                            <li class="nav-item"><a class="nav-link ext-links" href='http://ics.hutton.ac.uk/barleyrtd'>BarleyRTD Website</a></li>
+                            <li class="nav-item"><a class="nav-link ext-links" href='http://ics.hutton.ac.uk'>Information and Computing Sciences @Hutton</a></li>
+                            <li class="nav-item"><a class="nav-link ext-links" href='http://www.hutton.ac.uk'>The James Hutton Institute</a></li>
+                            <li class="nav-item"><a class="nav-link ext-links" href='https://www.barleyhub.org/'>International Barley Hub</a></li>
+                            <li class="nav-item nav-link"  id="nav-title"></li>
+
+                            <li class="nav-item nav-link"  id="nav-header"><b>Funders</b></li>
+                            <li class="nav-item nav-link"  id="nav-title"></li>
+                            <li class="nav-item nav-link"  id="nav-title"><img class='img-fluid' src='images/resas.svg' width=150'></li>
+                            <li class="nav-item nav-link"  id="nav-title"><img class='img-fluid' src='images/bbsrc.svg' width=150'></li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+
+                    <div class='data-header'>Translate HORVU Gene IDs to BART Gene IDs</div>
+                    <br>
+                    <div class='data-body'>
+                        <p>The relationship between the BART Genes and the HORVU Genes has been calculated using their respective locations on the Barley Pseudomolecules 2017. You can use this webpage to translate a list of HORVU Gene IDs to the equivalent BART Gene IDs and you will get a set of links to those BART Gene IDs. </p>
+                        
+                        <p>Please note that not every HORVU ID will have an equivalent BART ID, and some HORVU IDs will overlap with more than one BART ID. Also please note this is not a homology search it is simply a comparison of the two sets of genes based on their locations on the same reference genome.</p>
+
+                    <form action='bart_lookup.cgi' method='post'>
+                        <div class='card'>
+                            <div class='header data-header'>
+                                <span for="sequence">Please paste a list of HORVU Gene ID's - one per line</span>
+                            </div>
+                            <div class='card-body'>
+                                <div class="form-group">
+                                    <textarea class="form-control sequence-text" name='list' rows="15" id="sequence"  onfocus="this.value=''">HORVU1Hr1G000010
+HORVU1Hr1G000020
+HORVU1Hr1G000030
+HORVU1Hr1G000040
+HORVU1Hr1G000050
+HORVU0Hr1G038350
+HORVU0Hr1G040450</textarea>
+                                </div>
+
+                                <input class='btn btn-secondary red-btn' type='submit' value='Go'>
+
+                            
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </main>
+    </div>
+</div>
+</body></html>

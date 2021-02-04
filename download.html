@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+  <html lang='en'>
+  <head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='stylesheet/eorna.css'>
+  <link rel='icon' href='images/eorna-mini-logo.png'>
+
+  <title>EoRNA - Bulk Downloads</title>
+
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'></script>
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
+    </head>
+    
+    <body class='body-pos' data-spy='scroll' data-target='#list-data' data-offset='35' id='content'>
+
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <nav class="col-md-2 d-none d-md-block grey sidebar">
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item nav-link"  id="nav-title"><img class='img-fluid' src='images/eorna-logo.png' width=150'><span class='app-title'>EoRNA</span></li>
+                            <li class="nav-item nav-link"  id="nav-header"><b>Utilities Menu</b></li>
+                            <div class="list-group">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="blast.html">Homology Search</a></li>
+                            <li class="nav-item"><a class="nav-link" href="keyword.html">Annotation Search</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="download.html">Bulk Data Download</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bart_lookup.html">Translate HORVU to BART IDs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="go.html">GO Enrichment</a></li>
+                            </div>
+                            <li class="nav-item nav-link"  id="nav-title"></li>
+                            <li class="nav-item nav-link"  id="nav-header"><b>Links</b></li>
+                            <li class="nav-item nav-link"  id="nav-title"></li>
+                            <li class='nav-item'><a class='nav-link ext-links' href='contact.html'>Citation / About Authors</a></li>
+                            <li class="nav-item"><a class="nav-link ext-links" href='http://ics.hutton.ac.uk/barleyrtd'>BarleyRTD Website</a></li>
+                            <li class="nav-item"><a class="nav-link ext-links" href='http://ics.hutton.ac.uk'>Information and Computing Sciences @Hutton</a></li>
+                            <li class="nav-item"><a class="nav-link ext-links" href='http://www.hutton.ac.uk'>The James Hutton Institute</a></li>
+                            <li class="nav-item"><a class="nav-link ext-links" href='https://www.barleyhub.org/'>International Barley Hub</a></li>
+                            <li class="nav-item nav-link"  id="nav-title"></li>
+
+                            <li class="nav-item nav-link"  id="nav-header"><b>Funders</b></li>
+                            <li class="nav-item nav-link"  id="nav-title"></li>
+                            <li class="nav-item nav-link"  id="nav-title"><img class='img-fluid' src='images/resas.svg' width=150'></li>
+                            <li class="nav-item nav-link"  id="nav-title"><img class='img-fluid' src='images/bbsrc.svg' width=150'></li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+
+                    <div class='data-header'>EoRNA Downloads</div>
+                    <br>
+                    <div class='data-body'>
+                        <p>The text files are in tab-delimited format and can be opened in Excel. To save on file sizes the <b>eorna_expt_tpms.txt</b> file has an experiment id column which relates to the experiment names in the <b>eorna_expt_names.txt</b> file. The meta-data spreadsheet has more details of the experiments. </p>
+                        <table  class='table-bordered' width='100%'>
+                            <tbody>
+                                <tr><td class='option-header'>Description</td><td class='option-header'>Download File</td></tr>
+                                <tr><td>All TPM values from the EoRNA database (long list format)</td><td><a download href="downloads/eorna_expt_tpms.txt.gz">eorna_expt_tpms.txt.gz</a> (723 MB)</td></tr>
+                                <tr><td>List of experiments names and relationship to experiment IDs in eorna_expt_tpms.txt.gz</td><td><a download href="downloads/eorna_expt_names.txt">eorna_expt_names.txt</a> (33 KB)</td></tr>
+                                <tr><td>Meta-data for the RNA-seq experiments included in EoRNA</td><td><a download href="downloads/metadata_barley_rnaseq.xlsx">metadata_barley_rnaseq.xlsx</a> (342 KB)</td></tr>
+                                <tr><td>All TPM values from the EoRNA database (in matrix format, one transcript per line)</td><td><a download href="downloads/eorna_expt_tpms_matrix.txt.gz">eorna_expt_tpms_matrix.txt.gz</a> (265 MB)</td></tr>
+                            </tbody>   
+                        </table>
+                    </div>
+                    <div class='data-header'>BaRT Downloads</div>
+                    <br>
+                    <div class='data-body'>
+                        <p>You can download the FASTA and GFF file for both the unpadded and padded (QUASI-ready) versions of the Barley Reference Transcript Dataset v1_0 here.</p>
+                        <table  class='table-bordered' width='100%'>
+                            <tbody>
+                                <tr><td class='option-header'>Description</td><td class='option-header'>Download File</td></tr>
+                                <tr><td>Barley RTD FASTA file, padded for QUASI analysis</td><td><a download href="downloads/BaRT.1.0_Unsplit_exons_padded.fasta">BaRT.1.0_Unsplit_exons_padded.fasta</a></td></tr>
+                                <tr><td>Barley RTD GFF file, padded for QUASI analysis</td><td><a download href="downloads/BaRT.1.0_Unsplit_padded.gff">BaRT.1.0_Unsplit_padded.gff</a></td></tr>
+                                <tr><td>Barley RTD FASTA file, unpadded</td><td><a download href="downloads/BaRT.1.0_Unsplit_exons_unpadded.fasta">BaRT.1.0_Unsplit_exons_unpadded.fasta</a></td></tr>
+                                <tr><td>Barley RTD GFF file, unpadded</td><td><a download href="downloads/BaRT.1.0_Unsplit_unpadded.gff">BaRT.1.0_Unsplit_unpadded.gff</a></td></tr>
+                                <tr><td>Barley RTD protein translations</td><td><a download href="downloads/BaRT.1.0_transdecoder.pep.fasta">BaRT.1.0_transdecoder.pep.fasta</a></td></tr>
+                                <tr><td>Barley RTD relationship to HORVU 2017 gene locations</td><td><a download href="downloads/Match-Overlap_All_BART_HORVU_wholeChrCoords.xlsx">Match-Overlap_All_BART_HORVU_wholeChrCoords.xlsx</a></td></tr>
+                                <tr><td>Barley RTD Transcript Annotation (tab delimited). <br>Best BLAST hit to Brachypodium, Rice and Arabidopsis predicted proteins.</td><td><a download href="downloads/BaRT.1.0_all_annotation.txt">BaRT.1.0_all_annotation.txt</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class='data-header'>Downloads for GO Analysis and Enrichment</div>
+                    <br>
+                    <div class='data-body'>
+                        <p>Instructions on how to use these files in Go Enrichment Analysis can be found <a href='go.html'>here</a>. </p>
+                        <table  class='table-bordered' width='100%'>
+                            <tbody>
+                                <tr><td class='option-header'>Description</td><td class='option-header'>Download File</td></tr>
+                                <tr><td>GO Annotation</td><td><a download href="downloads/BaRTv1_0_GO_annotation_withLookup.xlsx">BaRTv1_0_GO_annotation_withLookup.xlsx</a></td></tr>
+                                <tr><td>BaRT_v_1_0.gmt for use in GO Enrichment</td><td><a download href="downloads/BaRT.1.0_Unsplit_padded.gff">BaRT_v_1_0.gmt</a></td></tr>
+                            </tbody>   
+                        </table>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>

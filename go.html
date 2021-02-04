@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+  <html lang='en'>
+  <head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='stylesheet/eorna.css'>
+  <link rel='icon' href='images/eorna-mini-logo.png'>
+
+  <title>EoRNA - GO Enrichment</title>
+
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'></script>
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
+    </head>
+    
+    <body class='body-pos' data-spy='scroll' data-target='#list-data' data-offset='35' id='content'>
+
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <nav class="col-md-2 d-none d-md-block grey sidebar">
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item nav-link"  id="nav-title"><img class='img-fluid' src='images/eorna-logo.png' width=150'><span class='app-title'>EoRNA</span></li>
+                            <li class="nav-item nav-link"  id="nav-header"><b>Utilities Menu</b></li>
+                            <div class="list-group">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="blast.html">Homology Search</a></li>
+                            <li class="nav-item"><a class="nav-link" href="keyword.html">Annotation Search</a></li>
+                            <li class="nav-item"><a class="nav-link" href="download.html">Bulk Data Download</a></li>
+                            <li class="nav-item"><a class="nav-link" href="bart_lookup.html">Translate HORVU to BART IDs</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="go.html">GO Enrichment</a></li>
+                            </div>
+                            <li class="nav-item nav-link"  id="nav-title"></li>
+                            <li class="nav-item nav-link"  id="nav-header"><b>Links</b></li>
+                            <li class="nav-item nav-link"  id="nav-title"></li>
+                            <li class='nav-item'><a class='nav-link ext-links' href='contact.html'>Citation / About Authors</a></li>
+                            <li class="nav-item"><a class="nav-link ext-links" href='http://ics.hutton.ac.uk/barleyrtd'>BarleyRTD Website</a></li>
+                            <li class="nav-item"><a class="nav-link ext-links" href='http://ics.hutton.ac.uk'>Information and Computing Sciences @Hutton</a></li>
+                            <li class="nav-item"><a class="nav-link ext-links" href='http://www.hutton.ac.uk'>The James Hutton Institute</a></li>
+                            <li class="nav-item"><a class="nav-link ext-links" href='https://www.barleyhub.org/'>International Barley Hub</a></li>
+                            <li class="nav-item nav-link"  id="nav-title"></li>
+
+                            <li class="nav-item nav-link"  id="nav-header"><b>Funders</b></li>
+                            <li class="nav-item nav-link"  id="nav-title"></li>
+                            <li class="nav-item nav-link"  id="nav-title"><img class='img-fluid' src='images/resas.svg' width=150'></li>
+                            <li class="nav-item nav-link"  id="nav-title"><img class='img-fluid' src='images/bbsrc.svg' width=150'></li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+
+                    <div class='data-header'>GO Analysis and Annotation</div>
+                    <br>
+                    <div class='data-body'>
+                        GO annotations for the BaRT dataset is available in a spreadsheet <a download href="downloads/BaRTv1_0_GO_annotation_withLookup.xlsx">BaRTv1_0_GO_annotation_withLookup.xlsx </a>. In addition, this file contains a sheet where you can paste your own lists of BaRT gene IDs and it will look up their annotation in the sheet with the GO data:
+
+                        <ul>
+                            <li>1.	Copy and paste a column with gene IDS from the padded BaRT version into column 1 of the sheet named "lookup"</li>
+                            <li>2.	Row 2 contains the formulas that do the lookup and results should appear in this row immediately (columns B-F)</li>
+                            <li>3.	To generate the results for the remaining rows, select fields B2 to F2, then double-click the little green square at the bottom right of the selection outline. This should auto-fill all the fields below and generate the lookup results</li>
+                        </ul>
+                    </div>
+                    <div class='data-header'>External GO enrichment analysis with BaRT</div>
+                    <br>
+                    <div class='data-body'>
+                        <ul>
+                            <li>1.	Go the gProfiler page at <a href='https://biit.cs.ut.ee/gprofiler/gost'>https://biit.cs.ut.ee/gprofiler/gost</a></li>
+                            <li>2.	Copy and paste a list of BaRT gene identifiers (one per line) into the query input box</li>
+                        </ul>
+                        <img class='img-fluid' src='images/go_1.png'>
+                        <br>
+                        <ul>
+                            <li>3.	Expand the Custom GMT field at the bottom right and select the BaRT GMT file (<a download href='downloads/BaRT_v_1_0.gmt'>download the BaRT_v_1_0.gmt file</a>) from your local file system. The file will then get uploaded to the web server. </li>
+                            <li>4.	Click "Run query".</li>
+                            <li>5.	Your results will appear below after a few seconds. The interactive graph itself is quite informative: </li>
+                            </ul>
+                            <img class='img-fluid' src='images/go_2.png'>
+                            <br>
+                            <ul>
+                            <li>6.	Click the "Detailed Results" tab:</li>
+                        </ul>
+                        <img class='img-fluid' src='images/go_3.png'>
+                        <br>
+                        <ul>
+                            <li>7.	Click the "CSV" button to download your results file and save it to your local disk. </li>
+                        </ul>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>
