@@ -4,6 +4,8 @@ The EORNA website is designed to store and visualize gene and transcript abundan
 
 EORNA provides access to the gene and transcript abundances quantified using data from 22 RNA-seq experiments, covering 843 separate samples, as well as the sequence data and annotation for the Barley Reference Transcript Dataset.
 
-The EORNA website can be found at https://ics.hutton.ac.uk/eorna/index.html
+The EORNA website can be found at https://ics.hutton.ac.uk/eorna/index.html.
+
+
 
 <img src="https://barley.hutton.ac.uk/images/eorna-shot.png" width="868" height="476">
