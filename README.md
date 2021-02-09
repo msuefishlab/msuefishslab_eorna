@@ -1,3 +1,6 @@
+![GitHub](https://img.shields.io/github/license/cropgeeks/eorna?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/cropgeeks/eorna?style=flat-square)
+
 # eorna
 
 The EORNA website is designed to store and visualize gene and transcript abundance data on demand as transcripts per million (TPM) across all samples and all the genes within the barley genome. Abundances of alternative transcript expression for a gene are displayed as a Manhattan plot using Plotly.
