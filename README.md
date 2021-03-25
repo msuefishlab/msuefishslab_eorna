@@ -9,9 +9,9 @@ EORNA provides access to the gene and transcript abundances quantified using dat
 
 The EORNA website can be found at https://ics.hutton.ac.uk/eorna/index.html.
 
-The paper accompanying the website and the data analysis is at <a href="https://www.biorxiv.org/content/10.1101/2020.11.24.395749v1"> Bioarxiv</a> : <b>EoRNA, a barley gene and transcript abundance database.
+The paper accompanying the website and the data analysis is at <a href="https://www.nature.com/articles/s41597-021-00872-4"> Scientific Data</a> : <b>EoRNA, a barley gene and transcript abundance database.
 Linda Milne, Micha Bayer, Paulo Rapazote-Flores, Claus-Dieter Mayer, Robbie Waugh, Craig G. Simpson
-doi: https://doi.org/10.1101/2020.11.24.395749 </b>
+<i>Scientific Data</i> <b>8</b>, Article number: 90(2021)
 
 
 
