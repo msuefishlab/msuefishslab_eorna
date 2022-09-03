@@ -610,7 +610,7 @@ sub drawTranscriptTable{
     
     my($transcript_id, $seq_length, $description) = split(/\t/, $transcripts{$number}, 3);
     
-    print "<tr><td><a href='transcript.cgi?seq_name=$transcript_id&dataset=150831_barley_pseudomolecules'>$transcript_id</a></td><td>$seq_length</td><td>$description</td></tr>\n";
+    print "<tr><td><a href='transcript.cgi?seq_name=$transcript_id&dataset=$dataset'>$transcript_id</a></td><td>$seq_length</td><td>$description</td></tr>\n";
     
   }
   

@@ -240,19 +240,20 @@ sub getTranscriptsByGene {
 
   my %dataStructure;
   my $dataRef = \%dataStructure;
-
+  my $number = 1;
   while(my $hashRef = $sth->fetchrow_hashref('NAME_lc')){
 
     my $transcript_id      = $hashRef->{transcript_id};
     my $seq_length         = $hashRef->{seq_length};
     my $description        = $hashRef->{description};
 
-    my($id, $number) = split(/\./, $transcript_id, 2);
-
+    #my($id, $number) = split(/\./, $transcript_id, 2);
+    my $id = $transcript_id;
     my $joined_details = join("\t", $transcript_id, $seq_length, $description);
     
     
     $dataStructure{$number} = $joined_details;
+    $number++;
   }
   return $dataRef;
 }
