@@ -31,11 +31,11 @@ sub __databaseConnection {
   my ($self, $database) = (@_);
 
 
-  my $dbName = 'barleyrtd_new';
+  my $dbName = 'efish_genomics';
   my $dbDriver = 'mysql';
 
   # Connect to the database
-  $self->{'dbh'} = DBI->connect("DBI:mysql:$database;host=host", "username", "pass");
+  $self->{'dbh'} = DBI->connect("DBI:mysql:$database;host=localhost;mysql_socket=/opt/bitnami/mariadb/tmp/mysql.sock", "root", "lHUgLDKpa2Ip");
 
 
 

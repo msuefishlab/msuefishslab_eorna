@@ -19,7 +19,7 @@ print "Content-type: text/html\n\n";
 
 
 
-my $db_query = barleyrtd_wrapper->new('barleyrtd_new');
+my $db_query = barleyrtd_wrapper->new('efish_genomics');
 
 
 #Get the contig that this gene is from

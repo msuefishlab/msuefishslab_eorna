@@ -16,9 +16,13 @@ my $image_dir = "/var/www/html/barleyrtd-new/blast_net_images";
 print "Content-type: text/html\n\n";
 
 
-my $db_query = barleyrtd_wrapper->new('barleyrtd_new');
+my $db_query = barleyrtd_wrapper->new('efish_genomics');
 
-my($gene_name, $number) = split(/\./, $seq_name,2);
+#my($gene_name, $number) = split(/\./, $seq_name,2);
+
+my ($gene_name) = $db_query->{'dbh'}->
+  selectrow_array("select gene_id from transcript_sequences where transcript_id = '$seq_name' and dataset_name=\'$dataset\'");
+
 
 my ($contig_id) = $db_query->{'dbh'}->
   selectrow_array("select contig_id from transcript_sequences where transcript_id = '$seq_name' and dataset_name=\'$dataset\'");

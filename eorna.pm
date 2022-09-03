@@ -7,7 +7,7 @@ use barleyrtd_wrapper;
 use GD;
 require Exporter;
 
-my $db_query = barleyrtd_wrapper->new('barleyrtd_new');
+my $db_query = barleyrtd_wrapper->new('efish_genomics');
 
 my $image_dir = "/var/www/html/barleyrtd-new/blast_net_images";
 

@@ -12,18 +12,18 @@ my $seq_name    = $cgi_query->param("seq_name");
 print "Content-type: text/html\n\n";
 
 
-my $query = barleyrtd_wrapper->new('barleyrtd_new');
+my $query = barleyrtd_wrapper->new('efish_genomics');
 
 
-if (($seq_name =~ /^HORVU/) || ($seq_name =~ /^BART/)){
+if (($seq_name =~ /^XM/) || ($seq_name =~ /^BART/)){
   
   my $redirect;
 
-  if($seq_name =~ /HORVU/) {
+  if($seq_name =~ /XM/) {
   
     if($seq_name =~ /\./){
 
-      $redirect = "transcript.cgi?seq_name=$seq_name&dataset=150831_barley_pseudomolecules";
+      $redirect = "transcript.cgi?seq_name=$seq_name&dataset=BBRACH_0.4_ncbi";
   
     } else {
  
