@@ -9,7 +9,7 @@ require Exporter;
 
 my $db_query = barleyrtd_wrapper->new('efish_genomics');
 
-my $image_dir = "/var/www/html/barleyrtd-new/blast_net_images";
+my $image_dir = "/home/bitnami/htdocs/blast_net_images";
 
 
 sub printHeader {
@@ -240,7 +240,7 @@ sub createJSPlotlyGraph {
   
   
     # Open the stand-alone html file and print the javascript for the plot in it
-    open(PLOTLY, ">/var/www/html/barleyrtd-new/plotly/$plotly_filename") || die ("Cannot create file /var/www/html/barleyrtd-new/plotly/$plotly_filename");
+    open(PLOTLY, ">/home/bitnami/htdocs/plotly/$plotly_filename") || die ("Cannot create file /home/bitnami/htdocs/plotly/$plotly_filename");
 
     print PLOTLY "<!DOCTYPE html>
   <html lang='en'>
@@ -272,7 +272,7 @@ sub createJSPlotlyGraph {
 
     my $tpms_filename = $gene_id . "_tpms.txt";
 
-    open(TPMS, ">/var/www/html/barleyrtd-new/plotly/$tpms_filename") || die ("Cannot create file /var/www/html/barleyrtd-new/plotly/$tpms_filename");
+    open(TPMS, ">/home/bitnami/htdocs/plotly/$tpms_filename") || die ("Cannot create file /home/bitnami/htdocs/plotly/$tpms_filename");
 
     print TPMS "Experiment name\tDataset Name\tSRA IDs\tCultivar\tTissue\tBio Replicate\tExpt Condition";
     foreach my $t_id(@transcripts){
