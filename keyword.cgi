@@ -17,9 +17,9 @@ print "Content-type: text/html\n\n";
 eorna::printHeader("Keyword Search Results");
 
 
-my $query = barleyrtd_wrapper->new('barleyrtd_new');
+my $query = barleyrtd_wrapper->new('efish_genomics');
 
-my $temp_dir = '/var/www/html/barleyrtd-new/temp';
+my $temp_dir = '/home/bitnami/htdocs/tmp';
 
 
 print "<div class='container-fluid'>
@@ -140,7 +140,7 @@ foreach my $neg(@clean_negs){
   
   
 
-my %matchingSequences = %{$query->searchContigDescription($phrase, $dataset)};
+my %matchingSequences = %{$query->searchTranscriptDescription($phrase, $dataset)};
 
 
 my @trackDetails = keys(%matchingSequences);
@@ -159,13 +159,13 @@ if(scalar(@trackDetails)<1){
   
   print "<div id=\"keyword_results\">\n";
 
-  print "<table class='table-bordered' width='100%'><tbody><th>Sequence ID</th><th>Gene ID</th><th>BLAST DB</th><th>Hit Name</th><th>Identities</th><th>E-value</th><th>Description</th></tr>\n";
+  print "<table class='table-bordered' width='100%'><tbody><th>Sequence ID</th><th>Gene ID</th><<th>Description</th></tr>\n";
   
   my $count;
   
   foreach my $seq_name(sort (keys %matchingSequences)) {
     
-    my ($gene_id, $blast_db, $match_name, $aln_match, $aln_length, $percent_id, $evalue, $description) = split(/\t/, $matchingSequences{$seq_name});
+    my ($gene_id, $dataset_name, $description) = split(/\t/, $matchingSequences{$seq_name});
     
     my $seq_link = "<a href='transcript.cgi?seq_name=$seq_name&dataset=$dataset'>$seq_name</a>";
     
@@ -183,7 +183,7 @@ if(scalar(@trackDetails)<1){
       $match_link = "<a href='http://www.arabidopsis.org/servlets/TairObject?type=gene&name=$match_name' target='_blank'>$match_name</a>"
     }
 
-    print "<tr><td>$seq_link</td><td>$gene_link</td><td>$blast_db</td><td>$match_link</td><td nowrap>$aln_match/$aln_length ($percent_id %)</td><td>$evalue</td><td>$description</td><tr>\n";
+    print "<tr><td>$seq_link</td><td>$gene_link</td><td>$dataset</td><td>$description</td><tr>\n";
     
     $count++;
       
@@ -200,65 +200,65 @@ eorna::printFooter();
  
  
 
-sub make_data_file{
+# sub make_data_file{
   
-  my($phrase, $dataset) = @_;
+#   my($phrase, $dataset) = @_;
   
-  my %allmatchingSequences = %{$query->searchContigDescription($phrase, $dataset)};
+#   my %allmatchingSequences = %{$query->searchContigDescription($phrase, $dataset)};
 
 
-  my @trackDetails = keys(%allmatchingSequences);
+#   my @trackDetails = keys(%allmatchingSequences);
   
-  my $output_file;
-  my $total;
+#   my $output_file;
+#   my $total;
 
-  if(scalar(@trackDetails)<1){
+#   if(scalar(@trackDetails)<1){
   
-  } else {
+#   } else {
   
   
-    my $random_number = int(rand 1000);
+#     my $random_number = int(rand 1000);
   
-    my $datestamp = `date '+%d%m%y_%H%M%S'`;
-    chomp $datestamp;
+#     my $datestamp = `date '+%d%m%y_%H%M%S'`;
+#     chomp $datestamp;
 
-    $output_file = $datestamp . "_" . $random_number . ".txt";
+#     $output_file = $datestamp . "_" . $random_number . ".txt";
   
-    if (-e "$temp_dir/$output_file"){
+#     if (-e "$temp_dir/$output_file"){
       
-      print "<br><div id='return'><font color='#cc3300'>There has been an error in creating the output file</font></div><br><br>\n";
+#       print "<br><div id='return'><font color='#cc3300'>There has been an error in creating the output file</font></div><br><br>\n";
     
-      eorna::printFooter();
+#       eorna::printFooter();
       
-      die("Error: file '$temp_dir/$output_file' already exists\n");
-    }
+#       die("Error: file '$temp_dir/$output_file' already exists\n");
+#     }
     
-    open (OUT, ">$temp_dir/$output_file");
+#     open (OUT, ">$temp_dir/$output_file");
     
     
-    print OUT "Sequence ID\tGene ID\tBLAST DB\tHit Name\tIdentities\t% identity\tE-value\tDescription\n";
+#     print OUT "Sequence ID\tGene ID\tBLAST DB\tHit Name\tIdentities\t% identity\tE-value\tDescription\n";
   
     
   
-    foreach my $seq_name(sort (keys %allmatchingSequences)) {
+#     foreach my $seq_name(sort (keys %allmatchingSequences)) {
     
-      my ($gene_id, $blast_db, $match_name, $aln_match, $aln_length, $percent_id, $evalue, $description) = split(/\t/, $allmatchingSequences{$seq_name});
+#       my ($gene_id, $blast_db, $match_name, $aln_match, $aln_length, $percent_id, $evalue, $description) = split(/\t/, $allmatchingSequences{$seq_name});
       
-      print OUT "$seq_name\t$gene_id\t$blast_db\t$match_name\t$aln_match/$aln_length\t$percent_id\t$evalue\t$description\n";
+#       print OUT "$seq_name\t$gene_id\t$blast_db\t$match_name\t$aln_match/$aln_length\t$percent_id\t$evalue\t$description\n";
       
-      $total++;
+#       $total++;
     
-    }
+#     }
     
-    close OUT;
+#     close OUT;
     
     
 
-  }
+#   }
 
-  return ($output_file, $total);
+#   return ($output_file, $total);
 
 
-}
+# }
 
 

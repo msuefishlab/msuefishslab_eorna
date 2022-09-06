@@ -376,3 +376,32 @@ sub searchContigDescription {
 }
 
 
+sub searchTranscriptDescription {
+
+  my($self, $phrase, $dataset) = @_;
+
+  my($stmt) = "SELECT transcript_id, gene_id, dataset_name, description
+               FROM transcript_sequences where $phrase order by gene_id";
+
+
+  my ($sth) = $self->doSQLStatement($stmt); 
+
+  my %dataStructure;
+  my $dataRef = \%dataStructure;
+
+  while(my $hashRef = $sth->fetchrow_hashref('NAME_lc')){
+
+    my $transcript_id  = $hashRef->{transcript_id};
+    my $gene_id     = $hashRef->{gene_id};
+    my $dataset_name    = $hashRef->{dataset_name};
+    my $description = $hashRef->{description};
+
+    my($joined_details) = join ("\t", $gene_id, $dataset_name, $description);
+
+    $dataStructure{$transcript_id} = $joined_details;
+  }
+  
+  return $dataRef
+
+}
+
