@@ -115,7 +115,7 @@ sub getPaddedTPMsJS_efishgenomics{
     my $expt_condition  = $hashRef->{expt_condition};
     
     my $joined_details = join("\t", $tissue, $expt_condition, $tpm_value); 
-    $dataStructure{$transcript_id}{$expt_name} = joined_details
+    $dataStructure{$transcript_id}{$expt_name} = $joined_details
   }
   return $dataRef;
 }

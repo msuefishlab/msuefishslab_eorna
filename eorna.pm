@@ -133,6 +133,8 @@ sub createJSPlotlyGraph {
       my $expt_name_list;
       my $tpm_value_list;
       my $label_value_list;
+      my $tissue_name_list;
+      my $condition_name_list;
 
       foreach my $expt_name(sort keys %{$tpms{$transcript_id}}){
         my($tissue_val, $expt_condition_val, $tpm_val) = split(/\t/, $tpms{$transcript_id}{$expt_name}, 3);
@@ -166,8 +168,7 @@ sub createJSPlotlyGraph {
     name: '$transcript_number',
     hoverinfo: 'none',
     x: [$condition_name_list],
-    y: [$tpm_value_list],
-    hovertemplate: 'TPM: %{y}<extra></extra>'
+    y: [$tpm_value_list]
     };\n";
     
     $plotly_text_doc .= "var $tracevar = {
@@ -183,8 +184,7 @@ sub createJSPlotlyGraph {
     name: '$transcript_number',
     hoverinfo: 'none',
     x: [$condition_name_list],
-    y: [$tpm_value_list],
-    hovertemplate: 'TPM: %{y}<extra></extra>'
+    y: [$tpm_value_list]
     };\n";
 
     
@@ -209,9 +209,8 @@ sub createJSPlotlyGraph {
     yaxis: {title: 'TPM'},
     xaxis: {
       title: 'Sample',
-      showticklabels: false,
+      showticklabels: true,
     },
-    barmode: 'stack',
     colorway: ['#d11141', '#00b159', '#00aedb', '#2ca02c', '#f37735', '#ffc425', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22']
   };
 
@@ -236,9 +235,8 @@ sub createJSPlotlyGraph {
     yaxis: {title: 'TPM'},
     xaxis: {
       title: 'Sample',
-      showticklabels: false,
+      showticklabels: true,
     },
-    barmode: 'stack',
    colorway: ['#17becf', '#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22']
   };
 
