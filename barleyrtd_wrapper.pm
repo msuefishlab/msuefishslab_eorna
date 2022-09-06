@@ -91,6 +91,35 @@ sub getPaddedTPMsJS{
   return $dataRef;
 }
 
+sub getPaddedTPMsJS_efishgenomics{
+  
+  my ($self, $bart_gene_id) = @_;
+  
+  my $stmt = "SELECT transcript_id, e.experiment_name, e.tissue, e.expt_condition, tpm_value 
+  FROM tpm_values as t, tpm_experiments as e 
+  where t.gene_id='$bart_gene_id' 
+  and t.experiment_id = e.experiment_id;
+        ";
+        
+  my $sth = $self->doSQLStatement($stmt);
+  
+  my %dataStructure;
+  my $dataRef = \%dataStructure;
+  
+  while(my $hashRef = $sth->fetchrow_hashref('NAME_lc')){
+
+    my $transcript_id = $hashRef->{transcript_id};
+    my $expt_name     = $hashRef->{experiment_name};
+    my $tpm_value     = $hashRef->{tpm_value};
+    my $tissue          = $hashRef->{tissue};
+    my $expt_condition  = $hashRef->{expt_condition};
+    
+    my $joined_details = join("\t", $tissue, $expt_condition, $tpm_value); 
+    $dataStructure{$transcript_id}{$expt_name} = joined_details
+  }
+  return $dataRef;
+}
+
 sub getExperimentMetadata{
     my ($self) = @_;
   

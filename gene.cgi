@@ -116,7 +116,7 @@ eorna::printHeader($gene_name);
           <div class='sidebar-sticky'>
             <ul class='nav flex-column'>
 
-                <li class='nav-item nav-link'  id='nav-title'><img class='img-fluid' src='images/eorna-logo.png' width=150'><span class='app-title'>EoRNA</span></li>
+                <li class='nav-item nav-link'  id='nav-title'><img class='img-fluid' src='images/eorna-logo.png' width=150'><span class='app-title'>Expression Browser Beta</span></li>
                 <li class='nav-item'></li>
                 <li class='nav-item nav-link' id='nav-header'><b>Gene ID</b></li>
                 <li class='nav-item' id='nav-info'>$gene_name</li>

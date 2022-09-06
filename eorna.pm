@@ -68,7 +68,7 @@ sub createJSPlotlyGraph {
 
   my %tpms_pivot; #going to want to pivot the data matrix to be able to print out as tab-delimited text later
 
-  my %tpms= %{$db_query->getPaddedTPMsJS($gene_id)};
+  my %tpms= %{$db_query->getPaddedTPMsJS_efishgenomics($gene_id)};
 
   my @trackDetails = keys(%tpms);
 
@@ -135,56 +135,65 @@ sub createJSPlotlyGraph {
       my $label_value_list;
 
       foreach my $expt_name(sort keys %{$tpms{$transcript_id}}){
-
+        my($tissue_val, $expt_condition_val, $tpm_val) = split(/\t/, $tpms{$transcript_id}{$expt_name}, 3);
         $label_value_list .= "\"0\",";
-        $expt_name_list .= "\"$expt_name\",";
-        $tpm_value_list .= "$tpms{$transcript_id}{$expt_name},";
+        $tissue_name_list .= "\"$tissue_val\",";
+        $condition_name_list .= "\"$expt_condition_val\",";
+        $tpm_value_list .= "$tpm_val,";
 
         # Need to pivot the data matrix for printing out in a tab-delimited text file later
-        $tpms_pivot{$expt_name}{$transcript_id} = $tpms{$transcript_id}{$expt_name};
+        $tpms_pivot{$expt_name}{$transcript_id} = $tpm_val;
     
       }
     
       $expt_name_list =~ s/\,$//;
       $tpm_value_list =~ s/\,$//;
       $label_value_list =~ s/\,$//;
+      $condition_name_list =~ s/\,$//;
+      $tissue_name_list =~ s/\,$//;
 
-      $traceLabel_text = "var traceLabels = {
-    type: 'bar',
-    name: '',
-    hoverinfo: 'text',
-    hoverlabel:{ bgcolor: 'rgb(124,124,124)', font: { color: 'rgb(255,255,255)'}},
-    showlegend: false,
-    text: [$graph_label_text],
-    x: [$expt_name_list],
-    y: [$label_value_list]
-    };\n";
 
-      print  "var $tracevar = {
-    type: 'bar',
+    print  "var $tracevar = {
+    type: 'box',
+    boxpoints: 'all',
+    whiskerwidth: 0.2,
+    marker: {
+        size: 4
+    },
+    line: {
+        width: 1
+    },
     name: '$transcript_number',
     hoverinfo: 'none',
-    x: [$expt_name_list],
-    y: [$tpm_value_list]
+    x: [$condition_name_list],
+    y: [$tpm_value_list],
+    hovertemplate: 'TPM: %{y}<extra></extra>'
     };\n";
     
     $plotly_text_doc .= "var $tracevar = {
-    type: 'bar',
+    type: 'box',
+    boxpoints: 'all',
+    whiskerwidth: 0.2,
+    marker: {
+        size: 4
+    },
+    line: {
+        width: 1
+    },
     name: '$transcript_number',
     hoverinfo: 'none',
-      x: [$expt_name_list],
-      y: [$tpm_value_list]
+    x: [$condition_name_list],
+    y: [$tpm_value_list],
+    hovertemplate: 'TPM: %{y}<extra></extra>'
     };\n";
 
     
     }
 
-    print $traceLabel_text;
-    $plotly_text_doc .= $traceLabel_text;
     
     $trace_list =~ s/\,$//;
     
-    print "var data = [traceLabels,$trace_list];
+    print "var data = [$trace_list];
   var layout = {
     title: '$gene_id',
     autosize: false,
@@ -203,7 +212,7 @@ sub createJSPlotlyGraph {
       showticklabels: false,
     },
     barmode: 'stack',
-    colorway: ['#17becf', '#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22']
+    colorway: ['#d11141', '#00b159', '#00aedb', '#2ca02c', '#f37735', '#ffc425', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22']
   };
 
   Plotly.newPlot('plotly_tpm', data, layout);
