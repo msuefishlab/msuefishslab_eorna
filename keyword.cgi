@@ -134,7 +134,7 @@ foreach my $neg(@clean_negs){
   my $total;
   if ($total == 0 ) {
 
-    ($output_file, $total) = &make_data_file($phrase, $dataset);
+    #($output_file, $total) = &make_data_file($phrase, $dataset);
 
   }
   
@@ -159,7 +159,7 @@ if(scalar(@trackDetails)<1){
   
   print "<div id=\"keyword_results\">\n";
 
-  print "<table class='table-bordered' width='100%'><tbody><th>Sequence ID</th><th>Gene ID</th><<th>Description</th></tr>\n";
+  print "<table class='table-bordered' width='100%'><tbody><th>Sequence ID</th><th>Gene ID</th><th>Dataset</th><th>Description</th></tr>\n";
   
   my $count;
   
@@ -171,17 +171,7 @@ if(scalar(@trackDetails)<1){
     
     
     my $gene_link = "<a href='gene.cgi?seq_name=$gene_id&dataset=$dataset'>$gene_id</a>";
-    
-
-
-    
-    my $match_link;
-    
-    if($blast_db eq "RICEPP7"){
-      $match_link = "<a href='http://rice.plantbiology.msu.edu/cgi-bin/gbrowse/rice/?name=$match_name' target='_blank'>$match_name</a>"
-    } elsif($blast_db eq "TAIRPP10"){
-      $match_link = "<a href='http://www.arabidopsis.org/servlets/TairObject?type=gene&name=$match_name' target='_blank'>$match_name</a>"
-    }
+        
 
     print "<tr><td>$seq_link</td><td>$gene_link</td><td>$dataset</td><td>$description</td><tr>\n";
     
