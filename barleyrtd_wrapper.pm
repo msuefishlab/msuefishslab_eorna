@@ -381,8 +381,7 @@ sub searchTranscriptDescription {
   my($self, $phrase, $dataset) = @_;
 
   my($stmt) = "SELECT transcript_id, gene_id, dataset_name, description
-               FROM transcript_sequences where $phrase order by gene_id";
-
+               FROM transcript_sequences where $phrase and dataset_name=\'$dataset\' order by gene_id";
 
   my ($sth) = $self->doSQLStatement($stmt); 
 

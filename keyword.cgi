@@ -139,7 +139,6 @@ foreach my $neg(@clean_negs){
   }
   
   
-
 my %matchingSequences = %{$query->searchTranscriptDescription($phrase, $dataset)};
 
 

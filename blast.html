@@ -54,57 +54,8 @@
                 </nav>
 
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-
-                    <div class='data-header'>BLAST Search</div>
-                    <br>
-                    <div class='data-body'>
-
-                    <form action='blast.cgi?' method='post'>
-
-                        <div class='card'>
-                            <div class='header data-header'>
-                                <span for="sequence">Please enter sequences in FASTA format. You can search up to 30 sequences at a time.</span>
-                            </div>
-                            <div class='card-body'>
-                                <div class="form-group">
-                                    <textarea class="form-control sequence-text" name='sequence' rows="15" id="sequence"></textarea>
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text" for="type">Sequence Type</label>
-                                    </div>
-                                    <select class="custom-select" name="type" id="type">
-                                        <option value='nuc' selected>Nucleotide</option>
-                                        <option value="pro">Protein</option>
-                                    </select>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">E-value cutoff threshold </span>
-                                    </div>
-                                    <input type="text" class="form-control" name='e_cutoff' value='1e-25'>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text" for="inputGroupSelect01">Select BLAST database</label>
-                                    </div>
-                                    <select class="custom-select" id="inputGroupSelect01" name='database'>
-                                        <option selected>Choose...</option>
-                                        <option value="BaRT.1.0_Unsplit_exons">Barley RTD: BART gene IDs, 177,240 predicted transcripts</option>
-                                        <option value="BaRT.1.0_Peptides">Barley RTD: BART gene IDs, 144,283 predicted proteins</option>
-                                        <option value="Hv_IBSC_PGSB_r1_transcripts">HORVU gene IDs, 334,126 predicted transcripts published with the 2017 Morex genome assembly</option>
-                                        <option value="150831_barley_pseudomolecules">The 2017 Morex genome assembly, with 8 pseudomolecules </option>
-                                    </select>
-                                </div>
-
-                                <input class='btn btn-secondary red-btn' type='submit' value='Blast Sequence'>
-
-                            
-                            </div>
-                        </div>
-                    </form>
-                    </div>
+		<div class="embed-responsive embed-responsive-16by9">
+		<iframe class="embed-responsive-item" src="https://efishgenomics.integrativebiology.msu.edu/blast/"></iframe>
                 </main>
     </div>
 </div>
