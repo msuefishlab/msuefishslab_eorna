@@ -167,7 +167,7 @@ sub createJSPlotlyGraph {
     },
     name: '$transcript_number',
     hoverinfo: 'none',
-    x: [$condition_name_list],
+    x: [$tissue_name_list],
     y: [$tpm_value_list]
     };\n";
     
@@ -183,7 +183,7 @@ sub createJSPlotlyGraph {
     },
     name: '$transcript_number',
     hoverinfo: 'none',
-    x: [$condition_name_list],
+    x: [$tissue_name_list],
     y: [$tpm_value_list]
     };\n";
 
@@ -208,7 +208,7 @@ sub createJSPlotlyGraph {
     },
     yaxis: {title: 'TPM'},
     xaxis: {
-      title: 'Sample',
+      title: 'Tissue',
       showticklabels: true,
     },
     colorway: ['#d11141', '#00b159', '#00aedb', '#2ca02c', '#f37735', '#ffc425', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22']
@@ -234,7 +234,7 @@ sub createJSPlotlyGraph {
     },
     yaxis: {title: 'TPM'},
     xaxis: {
-      title: 'Sample',
+      title: 'Tissue',
       showticklabels: true,
     },
    colorway: ['#17becf', '#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22']
