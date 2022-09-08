@@ -54,14 +54,35 @@
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
                     <div class='data-body'>
-		            <div class="card-deck  mb-3">
+                        <div class="card-deck  mb-3">
+                        <div class='card grey-card'>
+                            <div class='card-header option-header'>Introduction</div>
+                            <img src='images/mormyro_gymno.png' class="card-img-top">
+                            <div class='card-body'>
+                                <p><font color='#5c5f58'><b>EoRNA</b></font> is a Barley Expression Database that displays gene and transcript abundance data on demand as transcripts per million (TPM) across all samples and all the genes. </p>
+
+                                <p><font color='#5c5f58'><b>EoRNA</b></font> provides access to the <a href='http://ics.hutton.ac.uk/barleyrtd'>Barley Reference Transcript Dataset</a> (BART), which consists of 177,240 unique barley expressed transcripts covering 60,444 genes. The transcripts are arranged as gene models and homology of the longest transcript to <i>Arabidopsis</i>, Rice and <i>Brachypodium</i> is given.</p>
+
+                                <p>
+                                You can access data directly by searching for a particular sequence ID or by <a href='blast.html'>BLASTing a sequence</a> against the genomic contigs or transcript sequences using the BLAST page.</p>
+                                
+                                <p>A table directly comparing the BART gene annotations with the Barley Pseudomolecules Annotation (HORVU 2017) can be downloaded from <a href="downloads/Match-Overlap_All_BART_HORVU_wholeChrCoords.xlsx">here</a>.</p>
+
+                                <p>
+                                If you don't have a DNA or protein sequence, you can use the <a href='keyword.html'>Annotation Search</a> of the BLAST annotations of the genes, which are available for the <a href='http://rice.plantbiology.msu.edu/index.shtml'>Rice Pseudo-peptides v6</a>, the <a href='http://www.arabidopsis.org'>TAIR Arabidopsis thaliana Pseudo-peptides v10</a>, and the <a href='http://www.plantgdb.org/XGDB/phplib/download.php?GDB=Bd'>Brachypodium distachyon Pseudo-peptides</a>.</p>
+
+                                <p>This research was supported and developed by Scottish Government Rural and Environment Science and Analytical Services division (RESAS) and funding from the Biotechnology and Biological Sciences Research Council and ERC project 669182 ‘SHUFFLE’.</p>
+                            </div>
+                        </div>
+
+                        
                             <div class="card grey-card">
                                 <div class="card-header option-header">Search for a Sequence by ID</div>
                                 <div class="card-body">
-                                <p>Currently <font color='#5c5f58'><b>EoRNA</b></font> contains both the Barley RTD (BART) transcripts (<a href='https://bmcgenomics.biomedcentral.com/articles>
+                                <p>Currently <font color='#5c5f58'><b>EoRNA</b></font> contains both the Barley RTD (BART) transcripts (<a href='https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-019-6243-7'>publication here</a>) and the predicted transcripts from the Barley Pseudomolecules (HORVU 2017) (<a href='https://www.nature.com/articles/nature22043'>publication here</a>).</p>
 
-                                <p><b>Barley RTD</b> : The predicted genes have the nomenclature "BART1_0-u00001". Transcript models are named after the the gene loci like "BART1_0-u00001.001>
-                                <p><b>HORVU 2017 Pseudomolecules Annotation</b> : The predicted genes have the nomenclature "HORVU1Hr1G000010". Transcript models are named after the gene loci>
+                                <p><b>Barley RTD</b> : The predicted genes have the nomenclature "BART1_0-u00001". Transcript models are named after the the gene loci like "BART1_0-u00001.001". 
+                                <p><b>HORVU 2017 Pseudomolecules Annotation</b> : The predicted genes have the nomenclature "HORVU1Hr1G000010". Transcript models are named after the gene loci like "HORVU1Hr1G000010.1".
                                 <br><br>
                                 <table class='table-bordered' width='100%'><theader><tr><th>Dataset</th><th>Gene IDs</th><th># Genes</th><th> # Transcripts</th></tr></theader>
                                     <tbody>
@@ -70,28 +91,20 @@
                                     </tbody>
                                 </table>
                                 <br><br>
-                                <p>Searching for a gene ID will return all the transcript models from that gene region. You can go directly to a gene or transcript by using this search box:</>
+                                <p>Searching for a gene ID will return all the transcript models from that gene region. You can go directly to a gene or transcript by using this search box:</p>
 
                                 <form action='search_ids.cgi' method='get'>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Search for Sequence ID</span>
                                         </div>
-                                        <input type="text" class="form-control" name='seq_name' value='XM_048969274.1' onfocus="this.value=''">
+                                        <input type="text" class="form-control" name='seq_name' value='BART1_0-u00001' onfocus="this.value=''">
                                         <div class="input-group-append"><input class='btn btn-secondary red-btn' type='submit' value='Search'></div>
                                     </div>
-
+                                    
                                     </form>
                                 </div>
                             </div>
-			    <div class='card grey-card'>
-                            	<div class='card-header option-header'>Introduction</div>
-				<img src='images/mormyro_gymno.png' class="card-img-top">
-				<div class="card-body">
-    					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  				</div>
-			    </div>
-                        
                         </div>
 
                         <div class="card-deck mb-3">
